@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import Article1 from './components/Article1';
 import Article2 from './components/Article2';
 import Article3 from './components/Article3';
@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <nav className="navbar">
-          <h1>Articles Website</h1>
+          <h1>Articles</h1>
           <ul className="navbar-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/article1">Article 1</Link></li>
@@ -19,7 +19,8 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element={<Navigate replace to="/home" />} />
+          <Route path="/home" element={
             <div className="home">
               <h1>Welcome to the Articles Website</h1>
               <p>Select an article to read from the navigation bar or the list below:</p>
